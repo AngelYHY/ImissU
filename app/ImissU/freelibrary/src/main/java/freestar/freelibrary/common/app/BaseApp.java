@@ -1,4 +1,4 @@
-package freestar.freelibrary;
+package freestar.freelibrary.common.app;
 
 import android.app.Application;
 import android.content.Context;

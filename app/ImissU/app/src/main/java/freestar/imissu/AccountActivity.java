@@ -59,6 +59,11 @@ public class AccountActivity extends AppCompatActivity implements View.OnClickLi
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
+            case R.id.account_btn_submit:
+                if (isLogin()) {
+
+                }
+                break;
             case R.id.account_btn_change:
                 mViewAnimator.showNext();
                 if (isLogin()) {

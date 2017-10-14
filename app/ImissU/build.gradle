@@ -10,13 +10,37 @@ ext {
              targetSdk : 25,
              vcode     : 1,
              vname     : "1.0"]
-    versions = [libSupport    : "25.3.1",
-                libButterKnife: "8.4.0",
-                libRxJava     : "2.0.7",
-                libRxAndroid  : "2.0.1",
-                libRxlife     : "2.0.1",
-                libRetrofit   : "2.2.0",
-                libOkhttp     : "3.6.0"]
+
+//    versions = [libSupport    : "25.3.1",
+//                libButterKnife: "8.4.0",
+//                libRxJava     : "2.0.7",
+//                libRxAndroid  : "2.0.1",
+//                libRxlife     : "2.0.1",
+//                libRetrofit   : "2.2.0",
+//                libOkhttp     : "3.6.0"]
+
+// 相关依赖库版本
+    supportVersion = '25.3.1'
+    butterknifeVersion = '8.5.1'
+    geniusVersion = '2.0.0'
+    glideVersion = '3.7.0'
+    circleimageviewVersion = '2.1.0'
+    ucropVersion = "2.2.0-native"
+    easyPMVersion = "0.3.0"
+    ossVersion = '2.3.0'
+
+    gsonVersion = '2.8.0'
+    retrofitVersion = '2.2.0'
+    getuiVersion = '2.9.3.0'
+    dbflowVersion = "4.0.0-beta7"
+    airpanelVersion = "1.1.0"
+    lameVersion = "1.0.0"
+
+    rxJavaVersion='2.0.7'
+    rxAndroidVersion='2.0.1'
+    rxlifeVersion='2.0.1'
+    okhttpVersion='3.6.0'
+    brvahVersion='2.9.28'
 }
 buildscript {
     repositories {

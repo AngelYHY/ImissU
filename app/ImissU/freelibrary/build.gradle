@@ -31,38 +31,43 @@ dependencies {
 
     testCompile 'junit:junit:4.12'
 
-    compile "com.android.support:support-annotations:$rootProject.versions.libSupport"
+    compile "com.android.support:support-annotations:$rootProject.ext.supportVersion"
 
     // rxpermissions2
     compile 'com.tbruyelle.rxpermissions2:rxpermissions:0.8.2@aar'
 
-    compile "com.android.support:design:$rootProject.versions.libSupport"
-    compile "com.android.support:appcompat-v7:$rootProject.versions.libSupport"
+    compile "com.android.support:appcompat-v7:$rootProject.ext.supportVersion"
+    compile "com.android.support:design:$rootProject.ext.supportVersion"
 
     // butterknife
 //    compile "com.jakewharton:butterknife:$rootProject.versions.libButterKnife"
 //    annotationProcessor "com.jakewharton:butterknife-compiler:$rootProject.versions.libButterKnife"
 
+    compile 'com.jakewharton:butterknife:7.0.1'
+
     //热修复
     compile 'com.aliyun.ams:alicloud-android-hotfix:3.1.2'
 
     //retrofit and rxjava
-    compile "com.squareup.retrofit2:retrofit:$rootProject.versions.libRetrofit"
-    compile "com.squareup.retrofit2:converter-gson:$rootProject.versions.libRetrofit"
-    compile "com.squareup.retrofit2:adapter-rxjava2:$rootProject.versions.libRetrofit"
-    compile "com.squareup.okhttp3:okhttp:$rootProject.versions.libOkhttp"
-    compile "com.squareup.okhttp3:logging-interceptor:$rootProject.versions.libOkhttp"
-    compile "io.reactivex.rxjava2:rxjava:$rootProject.versions.libRxJava"
-    compile "io.reactivex.rxjava2:rxandroid:$rootProject.versions.libRxAndroid"
+    compile "com.squareup.retrofit2:retrofit:$rootProject.ext.retrofitVersion"
+    compile "com.squareup.retrofit2:converter-gson:$rootProject.ext.retrofitVersion"
+    compile "com.squareup.retrofit2:adapter-rxjava2:$rootProject.ext.retrofitVersion"
+    compile "com.squareup.okhttp3:okhttp:$rootProject.ext.okhttpVersion"
+    compile "com.squareup.okhttp3:logging-interceptor:$rootProject.ext.okhttpVersion"
+    compile "io.reactivex.rxjava2:rxjava:$rootProject.ext.rxJavaVersion"
+    compile "io.reactivex.rxjava2:rxandroid:$rootProject.ext.rxAndroidVersion"
     // 生命周期
-    compile "com.trello.rxlifecycle2:rxlifecycle:$rootProject.versions.libRxlife"
+    compile "com.trello.rxlifecycle2:rxlifecycle:$rootProject.ext.rxlifeVersion"
     // If you want pre-written Activities and Fragments you can subclass as providers
-    compile "com.trello.rxlifecycle2:rxlifecycle-components:$rootProject.versions.libRxlife"
+    compile "com.trello.rxlifecycle2:rxlifecycle-components:$rootProject.ext.rxlifeVersion"
 
     //rv adapter
-    compile 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.28'
+    compile "com.github.CymChad:BaseRecyclerViewAdapterHelper:$rootProject.ext.brvahVersion"
 
     // log 日志
     compile 'com.orhanobut:logger:1.15'
 
+    compile "net.qiujuer.genius:kit-handler:$rootProject.ext.geniusVersion"
+
+    compile project(':lang')
 }

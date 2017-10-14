@@ -20,12 +20,13 @@ android {
 }
 
 dependencies {
-    compile project(':freelibrary')
+
+    compile project(':factory')
+
     compile "net.qiujuer.genius:ui:$rootProject.ext.geniusVersion"
     compile "net.qiujuer.genius:res:$rootProject.ext.geniusVersion"
     compile "net.qiujuer.genius:graphics:$rootProject.ext.geniusVersion"
     compile "net.qiujuer.genius:kit-handler:$rootProject.ext.geniusVersion"
     //字体变换库
     compile "uk.co.chrisjenx:calligraphy:$rootProject.ext.calligraphyVersion"
-    compile 'com.jakewharton:butterknife:7.0.1'
 }

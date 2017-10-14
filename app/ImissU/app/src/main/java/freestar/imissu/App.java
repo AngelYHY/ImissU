@@ -1,6 +1,6 @@
 package freestar.imissu;
 
-import freestar.freelibrary.BaseApp;
+import freestar.freelibrary.common.app.BaseApplication;
 
 /**
  * 描述：
@@ -9,7 +9,7 @@ import freestar.freelibrary.BaseApp;
  * github：
  */
 
-public class App extends BaseApp {
+public class App extends BaseApplication {
 
     @Override
     protected void initKey() {

@@ -70,7 +70,7 @@
                 android:inputType="textPassword"
                 android:textColorHighlight="@color/color_edit_account_hint"/>
 
-            <EditText
+            <net.qiujuer.genius.ui.widget.EditText
                 android:id="@+id/account_edit_register_password_confirm"
                 style="@style/EditText.Account"
                 android:hint="@string/txt_password_confirm"
