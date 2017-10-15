@@ -4,13 +4,21 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.trello.rxlifecycle2.components.support.RxFragment;
+
 import butterknife.ButterKnife;
 import freestar.freelibrary.common.widget.PlaceHolderView;
+import freestar.freelibrary.factory.BaseContract;
+import io.reactivex.Observable;
+import io.reactivex.ObservableSource;
+import io.reactivex.ObservableTransformer;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.schedulers.Schedulers;
+
 
 /**
  * 描述：
@@ -19,11 +27,12 @@ import freestar.freelibrary.common.widget.PlaceHolderView;
  * github：
  */
 
-public abstract class BaseFragment extends Fragment {
+public abstract class BaseFragment extends RxFragment implements BaseContract.IView{
     protected View mRoot;
     protected PlaceHolderView mPlaceHolderView;
     // 标示是否第一次初始化数据
     protected boolean mIsFirstInitData = true;
+    private Context mContext;
 
     @Override
     public void onAttach(Context context) {
@@ -37,8 +46,12 @@ public abstract class BaseFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        mContext = getActivity();
         if (mRoot == null) {
             int layId = getContentLayoutId();
+            if (layId == 0) {
+                throw new IllegalArgumentException("You must return a right contentView layout resource Id");
+            }
             // 初始化当前的跟布局，但是不在创建时就添加到container里边
             View root = inflater.inflate(layId, container, false);
             initWidget(root);
@@ -66,6 +79,20 @@ public abstract class BaseFragment extends Fragment {
         // 当View创建完成后初始化数据
         initData();
     }
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        initComponent();
+        presenterAttachView();
+        initView();
+    }
+
+    protected abstract void initComponent();
+
+    protected abstract void presenterAttachView();
+
+    protected abstract void initView();
 
     /**
      * 初始化相关参数
@@ -111,6 +138,17 @@ public abstract class BaseFragment extends Fragment {
      */
     public boolean onBackPressed() {
         return false;
+    }
+
+    @Override
+    public <T> ObservableTransformer<T, T> applySchedulers() {
+        return new ObservableTransformer<T, T>() {
+            @Override
+            public ObservableSource<T> apply(Observable<T> upstream) {
+                return upstream.subscribeOn(Schedulers.io())
+                        .observeOn(AndroidSchedulers.mainThread());
+            }
+        };
     }
 
     /**

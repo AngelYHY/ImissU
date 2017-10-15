@@ -12,9 +12,9 @@ import freestar.freelibrary.factory.BaseContract;
  * github：
  */
 
-public abstract class PresenterFragment<Presenter extends BaseContract.BasePresenter> extends BaseFragment implements BaseContract.BaseView<Presenter> {
+public abstract class PresenterFragment extends BaseFragment implements BaseContract.IView {
 
-    private Presenter mPresenter;
+    private BaseContract.IPresenter mPresenter;
 
     @Override
     public void onAttach(Context context) {
@@ -44,12 +44,6 @@ public abstract class PresenterFragment<Presenter extends BaseContract.BasePrese
         if (mPlaceHolderView != null) {
             mPlaceHolderView.triggerLoading();
         }
-    }
-
-    @Override
-    public void setPresenter(Presenter presenter) {
-        // view 中赋值 Presenter
-        mPresenter = presenter;
     }
 
     @Override
