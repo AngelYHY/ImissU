@@ -6,7 +6,7 @@ ext {
 
     setup = [compileSdk: 25,
              buildTools: "25.0.3",
-             minSdk    : 19,
+             minSdk    : 15,
              targetSdk : 25,
              vcode     : 1,
              vname     : "1.0"]
@@ -41,7 +41,6 @@ ext {
     rxlifeVersion='2.0.1'
     okhttpVersion='3.6.0'
     brvahVersion='2.9.28'
-    daggerVersion='2.12'
 }
 buildscript {
     repositories {
@@ -50,7 +49,6 @@ buildscript {
     dependencies {
         classpath 'com.android.tools.build:gradle:2.3.3'
 //        classpath 'com.jakewharton:butterknife-gradle-plugin:8.5.1'
-        classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8' // 3
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files

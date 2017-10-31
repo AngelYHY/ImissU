@@ -1,6 +1,5 @@
 package freestar.freelibrary.factory;
 
-import android.support.annotation.NonNull;
 import android.support.annotation.StringRes;
 
 import io.reactivex.ObservableTransformer;
@@ -14,28 +13,22 @@ import io.reactivex.ObservableTransformer;
 
 public interface BaseContract {
 
-    interface IView {
+    interface BaseView<T extends BasePresenter> {
         // 公共的：显示一个字符串错误
         void showError(@StringRes int str);
 
         // 公共的：显示进度条
         void showLoading();
 
+        // 支持设置一个 Presenter
+        void setPresenter(T presenter);
+
         <M> ObservableTransformer<M, M> applySchedulers();  //rxjava2
 
     }
 
     // 基本的 Presenter 职责
-
-    interface IPresenter<T>  {
-        /**
-         * 注入View，使之能够与View相互响应
-         *
-         * @param iView
-         */
-        void attachView(@NonNull T iView);
-
-
+    interface BasePresenter {
         // 共用的开始触发
         void start();
 

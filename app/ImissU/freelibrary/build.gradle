@@ -1,4 +1,5 @@
 apply plugin: 'com.android.library'
+//apply plugin: 'com.jakewharton.butterknife'
 
 android {
     compileSdkVersion rootProject.setup.compileSdk
@@ -66,17 +67,7 @@ dependencies {
     // log 日志
     compile 'com.orhanobut:logger:1.15'
 
-    compile project(':lang')
-
-    compile "net.qiujuer.genius:ui:$rootProject.ext.geniusVersion"
-    compile "net.qiujuer.genius:res:$rootProject.ext.geniusVersion"
-    compile "net.qiujuer.genius:graphics:$rootProject.ext.geniusVersion"
     compile "net.qiujuer.genius:kit-handler:$rootProject.ext.geniusVersion"
-    //字体变换库
-    compile "uk.co.chrisjenx:calligraphy:$rootProject.ext.calligraphyVersion"
 
-    annotationProcessor "com.github.Raizlabs.DBFlow:dbflow-processor:${rootProject.ext.dbflowVersion}"
-    compile "com.github.Raizlabs.DBFlow:dbflow-core:${rootProject.ext.dbflowVersion}"
-    compile "com.github.Raizlabs.DBFlow:dbflow:${rootProject.ext.dbflowVersion}"
-
+    compile project(':lang')
 }

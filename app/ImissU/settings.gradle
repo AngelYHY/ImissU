@@ -1,1 +1,1 @@
-include ':app', ':freelibrary', ':lang'
+include ':app', ':freelibrary', ':factory', ':lang'
